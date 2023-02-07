@@ -5,6 +5,7 @@
 <hr>
 
 <form method="post">
+    {% csrf_token %} <!-- csrf token man in the middle gibi saldırılardan korunmak için bir token ve olmazsa olmaz -->
     {{form.as_p}}
     <br>
     <button type="submit" class="btn btn-danger">Register</button>
