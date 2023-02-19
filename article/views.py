@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import ArticleForm
 from django.contrib import messages
+from .models import Article
 
 # Create your views here.
 def index(request):
@@ -8,7 +9,11 @@ def index(request):
 def about(request):
     return render(request,"about.html")
 def dashboard(request):
-    return render(request,"dashboard.html")
+    articles=Article.objects.filter(author=request.user)
+    context={
+        "articles":articles
+    }
+    return render(request,"dashboard.html",context)
 def addArticle(request):#Aynı formu oluştururken olduğu gibi appin modeli olduğundan kolayca ona kaydeder.
     form=ArticleForm(request.POST or None)
     if form.is_valid():
