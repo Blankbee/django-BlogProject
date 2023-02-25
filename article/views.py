@@ -18,7 +18,7 @@ def addArticle(request):#Aynı formu oluştururken olduğu gibi appin modeli old
     form=ArticleForm(request.POST or None)
     if form.is_valid():
         article=form.save(commit=False)#commit=False ile formu hazırlar ancak göndermez.commit=False işlemini 
-        article.author=request.user#author bilgisini formda vermediğimiz ve burada vermemiz gerektiği için yaptık.
+        article.author=request.user#author bilgisini formda vermediğimiz ve burada vermemiz gerektiği için yaptık..
         article.save()
         messages.success(request,"Article successfully created.")
         return redirect("index")
