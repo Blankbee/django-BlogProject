@@ -25,3 +25,5 @@ def addArticle(request):#Aynı formu oluştururken olduğu gibi appin modeli old
 
 
     return render(request,"addarticle.html",{"form":form})
+def detail():
+    pass
