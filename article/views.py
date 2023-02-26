@@ -25,5 +25,6 @@ def addArticle(request):#Aynı formu oluştururken olduğu gibi appin modeli old
 
 
     return render(request,"addarticle.html",{"form":form})
-def detail():
-    pass
+def detail(request,id):
+    article=Article.objects.filter(id=id).first()
+    return render(request,"detail.html",{"article":article})

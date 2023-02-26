@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Post content-->
+            <h3>{{article.title}}</h3>
+            <p class="lead">by
+                {{article.author.username}}</p> 
+            <hr>
+            <p>{{article.created_date}}</p>
+            <hr>
+
+            <!-- Preview image figure-->
+            <!---<figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..."></figure>-->
+            <!-- Post content-->
+            <p class="lead">
+                {{article.content}}
+            </p>
+    </div>
+</div>
+
+
+
+{% endblock body %}
