@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .forms import ArticleForm
 from django.contrib import messages
 from .models import Article
@@ -26,5 +26,6 @@ def addArticle(request):#Aynı formu oluştururken olduğu gibi appin modeli old
 
     return render(request,"addarticle.html",{"form":form})
 def detail(request,id):
-    article=Article.objects.filter(id=id).first()
+    #article=Article.objects.filter(id=id).first()
+    article=get_object_or_404(Article,id=id)
     return render(request,"detail.html",{"article":article})
