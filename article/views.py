@@ -29,3 +29,14 @@ def detail(request,id):
     #article=Article.objects.filter(id=id).first()
     article=get_object_or_404(Article,id=id)
     return render(request,"detail.html",{"article":article})
+def updateArticle(request,id):
+    article=get_object_or_404(Article, id=id)
+    form=ArticleForm(request.POST or None,request.FILES or None,instance=article)
+    if form.is_valid():
+        article=form.save(commit=False)#commit=False ile formu hazırlar ancak göndermez.commit=False işlemini 
+        article.author=request.user#author bilgisini formda vermediğimiz ve burada vermemiz gerektiği için yaptık..
+        article.save()
+        messages.success(request,"Article successfully editted.")
+        return redirect("index")
+
+    return render(request,"update.html",{"form":form})
