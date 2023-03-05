@@ -4,6 +4,10 @@ from django.contrib import messages
 from .models import Article
 from django.contrib.auth.decorators import login_required
 
+def articles(request):
+    articles=Article.objects.all()
+
+    return render(request,"articles.html",{"articles":articles})
 
 # Create your views here.
 def index(request):
