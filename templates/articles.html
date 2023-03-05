@@ -2,15 +2,22 @@
 
 
 {%block body%}
-<h3>Articles</h3>
-<hr>
+
+<div class="row">
+    <div class="col-md-10 offset-md-3">
+        <h3>Articles</h3>
+        <hr>
+    </div>
+
+</div>
 {%if articles%}
 
 {% for article in articles %}
 <div class="row">
+    <div class="col-md-10 offset-md-3">
     <div class="col-lg-8">
         <!-- Post content-->
-            <h3>{{article.title}}</h3>
+           <a href="/articles/article/{{article.id}}"><h2>{{article.title}}</h2></a>
             <p class="lead">by
                 {{article.author.username}}</p> 
             <hr>
@@ -26,6 +33,7 @@
                 {{article.content|safe}}
             </p>
     </div>
+</div>
 </div>
 
 {% endfor %}
