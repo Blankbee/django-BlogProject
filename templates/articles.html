@@ -8,6 +8,12 @@
         <div class="col-lg-8">
         <h1>Articles</h1>
         <hr>
+        <form>
+            {%csrf_token%}
+            <input type="text" name="keyword" class="input-sm" maxlength="64" placeholder="Search...">
+            <button type="submit" class="btn btn-danger">Search</button>
+        </form>
+        <br>
         </div>
     </div>
 
