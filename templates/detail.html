@@ -22,7 +22,23 @@
             </p>
     </div>
 </div>
-
+<div class="card-body">
+    <h5 class="card-header">Leave a comment</h5>
+    <!-- Comment form-->
+    <form class="mb-4" action="{% url 'article:comment' article.id %}" method="post">
+        {%csrf_token%}
+        <div class="form-group">
+            <input name="comment_author" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <textarea name="comment_content" class="form-control" rows="3" placeholder="Comment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <!-- Comment with nested comments-->
+    <div class="d-flex mb-4">
+    </div>
+</div>
 
 
 {% endblock body %}
