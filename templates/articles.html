@@ -25,7 +25,7 @@
     <div class="col-md-10 offset-md-3">
     <div class="col-lg-8">
         <!-- Post content-->
-           <a href="/articles/article/{{article.id}}"><h2>{{article.title}}</h2></a>
+           <a href="{% url 'article:detail' article.id %}"><h2>{{article.title}}</h2></a>
             <p class="lead">by
                 {{article.author.username}}</p> 
             <hr>
@@ -40,7 +40,7 @@
             <p>
                 {{article.content|safe|truncatewords:10}}
             </p>
-            <a href="/articles/article/{{article.id}}" class="btn btn-danger" style="float: right">Read More</a>
+            <a href="{% url 'article:detail' article.id %}" class="btn btn-danger" style="float: right">Read More</a>
             <br>
     </div>
 </div>
