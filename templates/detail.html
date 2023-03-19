@@ -22,6 +22,22 @@
             </p>
     </div>
 </div>
+{%if comments%}
+{%for comment in comments%}
+<div class="d-flex">
+    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
+    <div class="ms-3">
+        <div class="fw-bold">{{comment.comment_author}} <br></div>
+        {{comment.comment_date}} <br>
+        {{comment.comment_content}}
+    </div>
+</div>
+<br>
+{%endfor%}
+{%else%}
+<div>No comments in this article.</div>
+{%endif%}
+
 <div class="card-body">
     <h5 class="card-header">Leave a comment</h5>
     <!-- Comment form-->
