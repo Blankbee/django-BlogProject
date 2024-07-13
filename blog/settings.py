@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-945jfx1%gq!d41p&sl)b2cj13#s@!7=!!mjsba%t(f-&+06@m6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1",
+                 "localhost",
+                 "192.168.1.15",
+                 "172.19.0.2"
+                 ]
 
 
 # Application definition
@@ -42,7 +46,8 @@ INSTALLED_APPS = [
     "user",
     "crispy_forms",
     "ckeditor",
-    "django_cleanup"
+    "django_cleanup",
+    "crispy_bootstrap4"
 ]
 
 MIDDLEWARE = [

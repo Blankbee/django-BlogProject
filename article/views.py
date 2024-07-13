@@ -35,7 +35,7 @@ def addArticle(request):#Aynı formu oluştururken olduğu gibi appin modeli old
         article.author=request.user#author bilgisini formda vermediğimiz ve burada vermemiz gerektiği için yaptık..
         article.save()
         messages.success(request,"Article successfully created.")
-        return redirect("dashboard")
+        return redirect("article:dashboard")
 
 
     return render(request,"addarticle.html",{"form":form})
@@ -56,7 +56,7 @@ def updateArticle(request,id):
         article.author=request.user#author bilgisini formda vermediğimiz ve burada vermemiz gerektiği için yaptık..
         article.save()
         messages.success(request,"Article successfully editted.")
-        return redirect("dashboard")
+        return redirect("article:dashboard")
 
     return render(request,"update.html",{"form":form})
 @login_required
@@ -65,7 +65,7 @@ def deleteArticle(request,id):
     article.delete()
     messages.success(request,"Article successfully deleted.")
 
-    return redirect("dashboard")
+    return redirect("article:dashboard")
 def addComment(request,id):
     article=get_object_or_404(Article,id=id)
     if request.method == "POST":
