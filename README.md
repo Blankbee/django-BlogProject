@@ -1,6 +1,7 @@
-# My Django App
+# My Django Blog Website
 
-This project is a simple Django application packaged with Docker.
+A web application of a blog website with Django that allows users to register and login, write their own blogs, publish them,
+update and delete them and allows admins to manage all blogs and websites.
 
 ## Prerequisites
 
