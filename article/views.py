@@ -50,22 +50,31 @@ def detail(request,id):
 @login_required
 def updateArticle(request,id):
     article=get_object_or_404(Article, id=id)
-    form=ArticleForm(request.POST or None,request.FILES or None,instance=article)
-    if form.is_valid():
-        article=form.save(commit=False)#commit=False ile formu hazırlar ancak göndermez.commit=False işlemini 
-        article.author=request.user#author bilgisini formda vermediğimiz ve burada vermemiz gerektiği için yaptık..
-        article.save()
-        messages.success(request,"Article successfully editted.")
-        return redirect("article:dashboard")
+    if article.author != request.user:
+        messages.warning(request,"You cannot update an article that is not yours. Nice try bro ;)")
+        return redirect("index")
+    else:
+        form=ArticleForm(request.POST or None,request.FILES or None,instance=article)
+        if form.is_valid():
+            article=form.save(commit=False)#commit=False ile formu hazırlar ancak göndermez.commit=False işlemini 
+            article.author=request.user#author bilgisini formda vermediğimiz ve burada vermemiz gerektiği için yaptık..
+            article.save()
+            messages.success(request,"Article successfully editted.")
+            return redirect("article:dashboard")
 
-    return render(request,"update.html",{"form":form})
+        return render(request,"update.html",{"form":form})
 @login_required
 def deleteArticle(request,id):
     article=get_object_or_404(Article,id=id)
-    article.delete()
-    messages.success(request,"Article successfully deleted.")
+    if article.author != request.user:
+        messages.warning(request,"You cannot delete an article that is not yours. Nice try bro ;)")
+        return redirect("index")
+    else:
+        article.delete()
+        messages.success(request,"Article successfully deleted.")
+        return redirect("article:dashboard")
 
-    return redirect("article:dashboard")
+
 def addComment(request,id):
     article=get_object_or_404(Article,id=id)
     if request.method == "POST":
