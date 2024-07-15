@@ -23,7 +23,7 @@ update and delete them and allows admins to manage all blogs and websites.
     docker run -p 8000:8000 esadsen/django-blogproject:latest
     ```
 
-3. Open your browser and navigate to `http://localhost:8000`
+3. Open your browser and navigate to [http://localhost:8000](http://localhost:8000)
 
 ### Using Docker Compose
 
@@ -42,7 +42,7 @@ If you prefer to use Docker Compose, here is how you can do it:
     docker-compose up
     ```
 
-3. Open your browser and navigate to `http://localhost:8000`
+3. Open your browser and navigate to [http://localhost:8000](http://localhost:8000)
 
 
 ## Contributing
